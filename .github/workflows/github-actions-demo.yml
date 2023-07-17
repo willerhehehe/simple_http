@@ -30,12 +30,20 @@ jobs:
       #     tag_name: test-v${{ steps.package-version.outputs.version }}
       #     release_name: Release test-v${{ steps.package-version.outputs.version }}
       #     prerelease: false
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.ACTION_TOKEN }}
-          file: handlers
-          asset_name: handlers
-          tag: test-v${{ steps.package-version.outputs.version }}
-          overwrite: true
-          body: "This is my release text"
+      # - name: Upload binaries to release
+      #   uses: svenstaro/upload-release-action@v2
+      #   with:
+      #     repo_token: ${{ secrets.ACTION_TOKEN }}
+      #     file: handlers
+      #     asset_name: handlers
+      #     tag: test-v${{ steps.package-version.outputs.version }}
+      #     overwrite: true
+      #     body: "This is my release text"
+      uses: xresloader/upload-to-github-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+      with:
+        file: "go.mod,package.json,README.md"
+        tags: true
+        draft: true
+        tag_name: test-v${{ steps.package-version.outputs.version }}
