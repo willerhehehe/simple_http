@@ -34,8 +34,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.ACTION_TOKEN }}
-          file: README.md
-          asset_name: test_upload123.md
+          file: handlers
+          asset_name: handlers
           tag: test-v${{ steps.package-version.outputs.version }}
           overwrite: true
           body: "This is my release text"

@@ -1,6 +1,6 @@
 {
     "name": "simple_http",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "index.js",
     "repository": "https://github.com/willerhehehe/simple_http.git",
     "author": "willer <willerhe@gmail.com>",
