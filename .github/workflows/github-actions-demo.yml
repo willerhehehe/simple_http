@@ -21,21 +21,21 @@ jobs:
         with:
           path: './'
         id: package-version
-      - name: Create Release for Tag
-        id: release_tag
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }} # 这块需要用到 github的token，因为需要对分之进行代码推送
-        with:
-          tag_name: test-v${{ steps.package-version.outputs.version }}
-          release_name: Release test-v${{ steps.package-version.outputs.version }}
-          prerelease: false
+      # - name: Create Release for Tag
+      #   id: release_tag
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }} # 这块需要用到 github的token，因为需要对分之进行代码推送
+      #   with:
+      #     tag_name: test-v${{ steps.package-version.outputs.version }}
+      #     release_name: Release test-v${{ steps.package-version.outputs.version }}
+      #     prerelease: false
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.ACTION_TOKEN }}
           file: README.md
-          asset_name: test_upload
+          asset_name: test_upload123.md
           tag: test-v${{ steps.package-version.outputs.version }}
           overwrite: true
           body: "This is my release text"
