@@ -44,7 +44,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
         with:
-          file: "go.mod,package.json,README.md"
+          file: "go.mod;package.json;README.md"
           tags: true
           draft: true
           tag_name: test-v${{ steps.package-version.outputs.version }}
